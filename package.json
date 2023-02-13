@@ -1,0 +1,81 @@
+{
+  "name": "@keqin/adonis-sentry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/providers/SentryProvider.js",
+  "types": "build/adonis-typings/sentry.d.ts",
+  "typings": "build/adonis-typings/sentry.d.ts",
+  "scripts": {
+    "mrm": "mrm --preset=@adonisjs/mrm-preset",
+    "dev": "tsc --watch",
+    "pretest": "npm run lint",
+    "test": "node -r @adonisjs/require-ts/build/register bin/test.ts",
+    "clean": "del-cli build",
+    "compile": "npm run lint && npm run clean && tsc && npm run copy:files",
+    "build": "npm run compile",
+    "prepublishOnly": "npm run build",
+    "copy:files": "copyfiles \"templates/**/*.ts\" build && npm run copy:instructions_md",
+    "copy:instructions_md": "copyfiles \"instructions.md\" build",
+    "lint": "eslint . --ext=.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/mrm-preset": "^5.0.3",
+    "@adonisjs/require-ts": "^2.0.13",
+    "@types/node": "^18.13.0",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.34.0",
+    "eslint-plugin-adonis": "^2.1.1",
+    "mrm": "^4.1.13",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@adonisjs/core": "^5.1.0"
+  },
+  "mrmConfig": {
+    "core": false,
+    "license": "MIT",
+    "services": [
+      "github-actions"
+    ],
+    "minNodeVersion": "16.13.1",
+    "probotApps": [
+      "stale"
+    ],
+    "runGhActionsOnWindows": true
+  },
+  "files": [
+    "build/src",
+    "build/index.d.ts",
+    "build/index.js"
+  ],
+  "dependencies": {
+    "@sentry/node": "^7.37.1",
+    "@sentry/tracing": "^7.37.1",
+    "copyfiles": "^2.4.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:adonis/typescriptPackage"
+    ]
+  },
+  "eslintIgnore": [
+    "build"
+  ],
+  "adonisjs": {
+    "instructionsMd": "./build/instructions.md",
+    "types": "@keqin/adonis-sentry",
+    "providers": [
+      "@keqin/adonis-sentry"
+    ],
+    "templates": {
+      "config": [
+        "sentry.ts"
+      ]
+    },
+    "commands": [
+      "@keqin/adonis-sentry/build/commands/SentryPing.js"
+    ]
+  }
+}
