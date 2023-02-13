@@ -1,6 +1,6 @@
 {
   "name": "@keqin/adonis-sentry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "build/providers/SentryProvider.js",
   "types": "build/adonis-typings/sentry.d.ts",
@@ -46,7 +46,11 @@
     "runGhActionsOnWindows": true
   },
   "files": [
-    "build/src",
+    "build/adonis-typings",
+    "build/commands",
+    "build/providers",
+    "build/templates",
+    "build/instructions.md",
     "build/index.d.ts",
     "build/index.js"
   ],
