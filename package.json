@@ -1,6 +1,6 @@
 {
   "name": "@keqin/adonis-sentry",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "",
   "main": "build/providers/SentryProvider.js",
   "types": "build/adonis-typings/sentry.d.ts",
@@ -60,7 +60,7 @@
     "build/index.js"
   ],
   "dependencies": {
-    "@sentry/node": "^7.37.1",
+    "@sentry/node": "^7.53.1",
     "@sentry/tracing": "^7.37.1",
     "copyfiles": "^2.4.1"
   },

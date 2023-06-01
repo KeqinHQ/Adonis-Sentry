@@ -1,11 +1,10 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 import Config from '@ioc:Adonis/Core/Config'
-
 import * as Sentry from '@sentry/node'
 
 export default class SentryProvider {
   public static needsApplication = true
-  constructor (protected app: ApplicationContract) {}
+  constructor (protected app: ApplicationContract) { }
 
   public register () {
     this.app.container.singleton('Adonis/Addons/Sentry', () => {
@@ -14,6 +13,14 @@ export default class SentryProvider {
   }
   public async boot () {
     const config: typeof Config = this.app.container.use('Adonis/Core/Config')
-    Sentry.init(config.get('sentry'))
+    Sentry.init({
+      ...config.get('sentry'),
+      integrations: [
+        // enable HTTP calls tracing
+        new Sentry.Integrations.Http({ tracing: true }),
+        // Automatically instrument Node.js libraries and frameworks
+        ...Sentry.autoDiscoverNodePerformanceMonitoringIntegrations(),
+      ],
+    })
   }
 }

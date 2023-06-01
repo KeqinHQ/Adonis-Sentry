@@ -1,5 +1,17 @@
 ## Usage
 
+Set Env `SENTRY_DSN=` to a sentry dsn
+
+Add types for ENV in `env.ts`
+
+```typescript
+export default Env.rules({
+    SENTRY_DSN: Env.schema.string.optional({ format: 'url' }),
+    SENTRY_TRACES_SAMPLE_RATE: Env.schema.string.optional(),
+    SENTRY_DEBUG: Env.schema.boolean.optional()
+})
+```
+
 ```ts
 import Sentry from "@ioc:Adonis/Addons/Sentry"
 Sentry.captureException(new Error('Hello World'))
@@ -21,4 +33,11 @@ export default class ExceptionHandler extends HttpExceptionHandler {
     return super.handle(error, ctx)
   }
 }
+```
+
+Register Tracing Handler in `start/kernel.ts`
+```typescript
+Server.middleware.register([
+    () => import('@keqin/adonis-sentry/TracingHandler')
+])
 ```
