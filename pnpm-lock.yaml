@@ -1,12 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@adonisjs/core':
     specifier: ^5.1.0
     version: 5.1.0
-  '@adonisjs/http-server':
-    specifier: ^5.12.0
-    version: 5.12.0(@adonisjs/application@5.3.0)(@adonisjs/encryption@4.0.8)
   '@sentry/node':
     specifier: ^7.53.1
     version: 7.53.1
@@ -1621,7 +1622,7 @@ packages:
     dependencies:
       commander: 2.20.3
       lru-cache: 4.1.5
-      semver: 5.7.1
+      semver: 5.7.2
       sigmund: 1.0.1
     dev: true
 
@@ -3150,7 +3151,7 @@ packages:
     dependencies:
       hosted-git-info: 2.8.9
       osenv: 0.1.5
-      semver: 5.7.1
+      semver: 5.7.2
       validate-npm-package-name: 3.0.0
     dev: true
 
@@ -3294,7 +3295,7 @@ packages:
       got: 6.7.1
       registry-auth-token: 3.4.0
       registry-url: 3.1.0
-      semver: 5.7.1
+      semver: 5.7.2
     dev: true
 
   /package-json@6.5.0:
@@ -3829,7 +3830,7 @@ packages:
     resolution: {integrity: sha512-gL8F8L4ORwsS0+iQ34yCYv///jsOq0ZL7WP55d1HnJ32o7tyFYEFQZQA22mrLIacZdU6xecaBBZ+uEiffGNyXw==}
     engines: {node: '>=0.10.0'}
     dependencies:
-      semver: 5.7.1
+      semver: 5.7.2
     dev: true
 
   /semver-diff@3.1.1:
@@ -3843,8 +3844,8 @@ packages:
     resolution: {integrity: sha512-EjnoLE5OGmDAVV/8YDoN5KiajNadjzIp9BAHOhYeQHt7j0UWxjmgsx4YD48wp4Ue1Qogq38F1GNUJNqF1kKKxA==}
     dev: true
 
-  /semver@5.7.1:
-    resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
+  /semver@5.7.2:
+    resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
     dev: true
 
